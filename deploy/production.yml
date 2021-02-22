@@ -26,7 +26,12 @@ variables:
 pr: none
   
 steps:
-
+  - task: SonarQubePrepare@4
+    inputs:
+      SonarQube: 'AGROFENIX-Email'
+      scannerMode: 'MSBuild'
+      projectKey: 'AGROFENIX-Email'
+      projectName: 'AGROFENIX-Email'
   - task: gitversion/setup@0
     inputs:
       versionSpec: '5.1'
