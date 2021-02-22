@@ -1,11 +1,4 @@
 # termine, parte 1.
-  - task: SonarQubePrepare@4
-    inputs:
-      SonarQube: 'AGROFENIX-Email'
-      scannerMode: 'MSBuild'
-      projectKey: 'AGROFENIX-Email'
-      projectName: 'AGROFENIX-Email'
-
   trigger:
       branches:
         include:        
