@@ -1,15 +1,15 @@
 # termine, parte 1.
-  trigger:
-      branches:
-        include:        
-          - master  
-  pool:
-    vmImage: "ubuntu-16.04"
+trigger:
+    branches:
+      include:        
+        - master  
+pool:
+  vmImage: "ubuntu-16.04"
 
-  variables: 
-    BuildConfiguration: 'release'
-    # nombre del archivo csproj
-    name-project: "trifenix.connect.email"
+variables: 
+  BuildConfiguration: 'release'
+  # nombre del archivo csproj
+  name-project: "trifenix.connect.email"
 
   
 # github ejecuta este build, para validar y ejecutar,
