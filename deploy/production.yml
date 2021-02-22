@@ -1,4 +1,10 @@
 # termine, parte 1.
+- task: SonarQubePrepare@4
+  inputs:
+    SonarQube: 'AGROFENIX-Email'
+    scannerMode: 'MSBuild'
+    projectKey: 'AGROFENIX-Email'
+    projectName: 'AGROFENIX-Email'
 
 trigger:
     branches:
@@ -52,6 +58,10 @@ steps:
       arguments: '--configuration $(BuildConfiguration) /p:Version=$(SemVer)' 
       versioningScheme: byEnvVar 
       versionEnvVar: SemVer
+
+  - task: SonarQubePublish@4
+    inputs:
+      pollingTimeoutSec: '300'
 
   # publica paquete para publicar.
   - task: PublishBuildArtifacts@1
