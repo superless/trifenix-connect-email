@@ -38,14 +38,14 @@ steps:
         Write-Host $setVersion
     displayName: generando variable version con TRIFENIX VERSIONS
 
-  - task: SonarQubePrepare@4
-    inputs:
-      SonarQube: 'AGROFENIX-Email'
-      scannerMode: 'MSBuild'
-      projectKey: 'AGROFENIX-Email'
-      projectName: 'AGROFENIX-Email'
-      projectVersion: '$(version)'      
-    displayName: preparación sonarqube
+  # - task: SonarQubePrepare@4
+  #   inputs:
+  #     SonarQube: 'AGROFENIX-Email'
+  #     scannerMode: 'MSBuild'
+  #     projectKey: 'AGROFENIX-Email'
+  #     projectName: 'AGROFENIX-Email'
+  #     projectVersion: '$(version)'      
+  #   displayName: preparación sonarqube
 
 
 
@@ -68,10 +68,10 @@ steps:
         dotnet pack $(name-project).csproj --configuration $(BuildConfiguration) /p:Version=$(version) --output $(Build.ArtifactStagingDirectory)
     displayName: dotnet pack
 
-  - task: SonarQubeAnalyze@4
-  - task: SonarQubePublish@4
-    inputs:
-      pollingTimeoutSec: '300'    
+  # - task: SonarQubeAnalyze@4
+  # - task: SonarQubePublish@4
+  #   inputs:
+  #     pollingTimeoutSec: '300'    
 
   - task: PublishBuildArtifacts@1
     inputs:
